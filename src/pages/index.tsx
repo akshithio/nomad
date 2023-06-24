@@ -59,7 +59,7 @@ function AuthShowcase() {
 
   const { data } = api.travel.getAllPlans.useQuery(
     undefined, // no input
-    { enabled: sessionData?.user !== undefined },
+    { enabled: sessionData?.user !== undefined }
   );
 
   return (

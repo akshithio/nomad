@@ -16,21 +16,30 @@ datasource db {
 }
 
 model Plan {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  name        String
-  description String
-  location    String
-  startDate   DateTime
-  endDate     DateTime
-  ownerId     String
-  owner       Account  @relation(fields: [ownerId], references: [id])
+  id           String         @id @default(cuid())
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  name         String
+  description  String
+  location     String
+  startDate    DateTime
+  endDate      DateTime
+  ownerId      String
+  owner        Account        @relation(fields: [ownerId], references: [id])
+  CollabAccess CollabAccess[]
+}
+
+model CollabAccess {
+  id        String  @id @default(cuid())
+  planId    String
+  plan      Plan    @relation(fields: [planId], references: [id])
+  accountId String
+  Account   Account @relation(fields: [accountId], references: [id])
 }
 
 // Necessary for Next auth
 model Account {
-  id                String  @id @default(cuid())
+  id                String         @id @default(cuid())
   userId            String
   type              String
   provider          String
@@ -42,8 +51,9 @@ model Account {
   scope             String?
   id_token          String? // @db.Text
   session_state     String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   Plan              Plan[]
+  CollabAccess      CollabAccess[]
 
   @@unique([provider, providerAccountId])
 }
