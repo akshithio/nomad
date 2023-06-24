@@ -3,6 +3,7 @@ import Link from "next/link";
 import { api } from "@component/utils/api";
 import "cal-sans";
 import Image from "next/image";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -26,9 +27,7 @@ export default function Home() {
           <Image src="/logo.svg" alt="nomad logo" width={96} height={96} />
           <h1 className="ml-3 font-cal text-6xl font-bold">Nomad</h1>
           <h1 className="mt-2 font-serif">Travelling Simplified.</h1>
-          <button className="mt-4 border-2 border-black px-5 py-1 font-cal hover:px-8 ">
-            Log In
-          </button>
+          <AuthShowcase />
         </div>
         <div className="h-screen w-[30%] bg-gray-200 px-5 py-8 font-serif">
           <h1>
@@ -202,11 +201,12 @@ function AuthShowcase() {
         {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
         {data && <span> - {JSON.stringify(data)}</span>}
       </p>
+      {/* TODO: animate button translation */}
       <button
-        className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
+        className="mt-4 border-2 border-black px-5 py-1 font-cal hover:px-8 "
         onClick={sessionData ? () => void signOut() : () => void signIn()}
       >
-        {sessionData ? "Sign out" : "Sign in"}
+        {sessionData ? "Log out" : "Log in"}
       </button>
     </div>
   );
