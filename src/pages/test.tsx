@@ -34,7 +34,56 @@ export default function Home() {
         </div>
 
         <div className="ml-8 mt-8 grid grid-cols-4 gap-5">
-          <CardComponent />
+          <CardComponent
+            fromDate={new Date(Date.now())}
+            toDate={new Date(Date.now())}
+            fromPlace="Hyderabad"
+            toPlace="New York"
+            status="inProgress"
+          />
+          <CardComponent
+            fromDate={new Date(Date.now())}
+            toDate={new Date(Date.now())}
+            fromPlace="Istanbul"
+            toPlace="Milan"
+            status="recentlyCompleted"
+          />
+          <CardComponent
+            fromDate={new Date(Date.now())}
+            toDate={new Date(Date.now())}
+            fromPlace="Moscow"
+            toPlace="Brasilia"
+            status="expired"
+          />
+          <CardComponent
+            fromDate={new Date(Date.now())}
+            toDate={new Date(Date.now())}
+            fromPlace="Mumbai"
+            toPlace="Bangalore"
+            status="expired"
+          />
+
+          <CardComponent
+            fromDate={new Date(Date.now())}
+            toDate={new Date(Date.now())}
+            fromPlace="Hyderabad"
+            toPlace="Goa"
+            status="recentlyCompleted"
+          />
+          <CardComponent
+            fromDate={new Date(Date.now())}
+            toDate={new Date(Date.now())}
+            fromPlace="Austin"
+            toPlace="Philadelphia"
+            status="inProgress"
+          />
+          <CardComponent
+            fromDate={new Date(Date.now())}
+            toDate={new Date(Date.now())}
+            fromPlace="London"
+            toPlace="Nairobi"
+            status="recentlyCompleted"
+          />
         </div>
       </main>
     </>
