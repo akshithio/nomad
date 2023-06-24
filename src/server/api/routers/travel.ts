@@ -2,13 +2,23 @@ import {
   createTRPCRouter,
   protectedProcedure,
 } from "@component/server/api/trpc";
+import { Plan } from "../types";
+
 
 export const travelRouter = createTRPCRouter({
-  getAllPlans: protectedProcedure.query(({ctx}) => {
-    return ctx.prisma.plan.findMany({
+  getAllPlans: protectedProcedure.query(async ({ctx}) => {
+    return await ctx.prisma.plan.findMany({
       where: {
         ownerId: ctx.session.user.id
       }
     })
   }),
+  newPlan: protectedProcedure.input(Plan).query(async ({ctx, input}) => {
+    return await ctx.prisma.plan.create({
+      data: {
+        ...input,
+        ownerId: ctx.session.user.id
+      }
+    })
+  })
 });
