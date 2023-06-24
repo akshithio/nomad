@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import "cal-sans";
-import Navbar from "@component/components/Navbar";
+import Navbar from "@component/components/ui/Navbar";
 import * as Tabs from "@radix-ui/react-tabs";
 
 export default function Home() {
