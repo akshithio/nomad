@@ -13,7 +13,7 @@ export const travelRouter = createTRPCRouter({
       }
     })
   }),
-  newPlan: protectedProcedure.input(Plan).query(async ({ctx, input}) => {
+  newPlan: protectedProcedure.input(Plan).mutation(async ({ctx, input}) => {
     return await ctx.prisma.plan.create({
       data: {
         ...input,
