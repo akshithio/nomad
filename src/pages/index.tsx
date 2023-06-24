@@ -27,10 +27,10 @@ export default function Home() {
       {!sessionData && <LandingPage sessionData={sessionData} data={data} />}
       {sessionData && (
         <main className="flex min-h-screen w-screen flex-col overflow-x-clip">
-          <Navbar sessionData={sessionData} />
+          <Navbar />
           <div className="h-full w-screen py-8">
             <h1 className="ml-8 font-cal text-4xl">
-              Where we going today, {sessionData.user?.name}
+              Where we going today, {sessionData.user?.name}?
             </h1>
             {/* Potential Weather Thingy? */}
             <div className="mt-5 flex w-screen items-center justify-center">
@@ -49,54 +49,75 @@ export default function Home() {
 
           <div className="ml-8 mt-8 grid grid-cols-4 gap-5">
             <CardComponent
+              id={1}
+              imageNum={1}
               fromDate={new Date(Date.now())}
               toDate={new Date(Date.now())}
               fromPlace="Hyderabad"
               toPlace="New York"
               status="inProgress"
+              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
             />
             <CardComponent
+              id={2}
+              imageNum={2}
               fromDate={new Date(Date.now())}
               toDate={new Date(Date.now())}
               fromPlace="Istanbul"
               toPlace="Milan"
               status="recentlyCompleted"
+              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
             />
             <CardComponent
+              id={3}
+              imageNum={3}
               fromDate={new Date(Date.now())}
               toDate={new Date(Date.now())}
               fromPlace="Moscow"
               toPlace="Brasilia"
               status="expired"
+              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
             />
             <CardComponent
+              id={4}
+              imageNum={4}
               fromDate={new Date(Date.now())}
               toDate={new Date(Date.now())}
               fromPlace="Mumbai"
               toPlace="Bangalore"
               status="expired"
+              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
             />
 
             <CardComponent
+              id={5}
+              imageNum={2}
               fromDate={new Date(Date.now())}
               toDate={new Date(Date.now())}
               fromPlace="Hyderabad"
               toPlace="Goa"
               status="recentlyCompleted"
+              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
             />
             <CardComponent
+              id={6}
+              imageNum={3}
               fromDate={new Date(Date.now())}
               toDate={new Date(Date.now())}
               fromPlace="Austin"
               toPlace="Philadelphia"
               status="inProgress"
+              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
             />
             <CardComponent
+              id={7}
+              imageNum={1}
               fromDate={new Date(Date.now())}
               toDate={new Date(Date.now())}
               fromPlace="London"
               toPlace="Nairobi"
               status="recentlyCompleted"
+              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
             />
           </div>
         </main>

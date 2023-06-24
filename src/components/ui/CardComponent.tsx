@@ -1,15 +1,52 @@
+import Image from "next/image";
+import Link from "next/link";
+
 interface componentProps {
   status: string;
   fromPlace: string;
   toPlace: string;
   fromDate: Date;
   toDate: Date;
+  imageLink: string;
+  imageNum: number;
+  // Below is the journey / plan id that postgres should be automatically updating? it is set to number temporarily
+  id: number;
 }
 
 export default function CardComponent(props: componentProps) {
+  let string: string;
+  switch (props.imageNum) {
+    case 1:
+      string =
+        "https://cdn.discordapp.com/attachments/818736658819448845/1122145549353750568/Wallpapers_4.jpg";
+      break;
+    case 2:
+      string =
+        "https://cdn.discordapp.com/attachments/818736658819448845/1122145550263930920/Wallpapers_5.jpg";
+      break;
+    case 3:
+      string =
+        "https://cdn.discordapp.com/attachments/818736658819448845/1122145551367020644/Wallpapers_7.jpg";
+      break;
+    case 4:
+      string =
+        "https://cdn.discordapp.com/attachments/818736658819448845/1122145552105214043/Wallpapers_1.jpg";
+      break;
+  }
+
   return (
-    <div className="relative mt-4 h-[256px] w-[384px] rounded-md border-[2px] border-black">
-      <div className="h-[60%] w-full"></div>
+    <Link
+      href={`/journey/${props.id}`}
+      className="relative mt-4 h-[256px] w-[384px] rounded-md border-[2px] border-black"
+    >
+      <div className="z-0 h-[60%] w-full overflow-clip">
+        <Image
+          src={string}
+          alt="random banner image"
+          width={6016}
+          height={2000}
+        />
+      </div>
       <div className="h-[40%] w-full border-t-[2px] border-black px-2 pt-5 font-inter text-sm">
         {props.status === "inProgress" && (
           <div className="absolute right-2 rounded-md bg-yellow-300 px-2 font-cal text-[12px]">
@@ -57,16 +94,13 @@ export default function CardComponent(props: componentProps) {
             props.toDate.getDate().toString()}
         </h1>
       </div>
-      <svg
-        className="absolute left-[5%] top-[52.5%]"
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="20" cy="20" r="20" fill="black" />
-      </svg>
-    </div>
+      <Image
+        className="absolute left-[5%] top-[52.5%] rounded-full"
+        src={props.imageLink}
+        alt="profile picture"
+        height={36}
+        width={36}
+      />
+    </Link>
   );
 }

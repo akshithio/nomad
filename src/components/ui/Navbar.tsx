@@ -2,8 +2,18 @@ import Image from "next/image";
 import * as Popover from "@radix-ui/react-popover";
 import { ExitIcon, PersonIcon } from "@radix-ui/react-icons";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { api } from "@component/utils/api";
+import Router from "next/router";
 
 export default function Navbar(props: any) {
+  const { data: sessionData } = useSession();
+  console.log(sessionData);
+
+  const { data } = api.travel.getAllPlans.useQuery(
+    undefined, // no input
+    { enabled: sessionData?.user !== undefined }
+  );
+
   return (
     <div className="flex w-full items-center bg-gray-100 px-5 py-5">
       <div className="flex items-center justify-center">
@@ -15,7 +25,7 @@ export default function Navbar(props: any) {
           <Popover.Trigger asChild>
             <button>
               <Image
-                src={props.sessionData.user?.image}
+                src={sessionData.user?.image}
                 alt="profile picture"
                 height={36}
                 width={36}
@@ -28,8 +38,11 @@ export default function Navbar(props: any) {
               <div className="w-[240px] rounded-md border-[1px] border-black bg-white font-cal shadow-md">
                 <button
                   onClick={
-                    props.sessionData
-                      ? () => void signOut()
+                    sessionData
+                      ? () =>
+                          void signOut({
+                            callbackUrl: "http://localhost:3000/",
+                          })
                       : () => void signIn()
                   }
                   className="relative flex w-full items-center border-b-[1px] border-black p-3"
