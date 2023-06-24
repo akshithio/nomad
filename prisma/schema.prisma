@@ -25,22 +25,23 @@ model Plan {
   startDate    DateTime
   endDate      DateTime
   ownerId      String
-  owner        Account        @relation(fields: [ownerId], references: [userId])
+  owner        User           @relation(fields: [ownerId], references: [id])
   CollabAccess CollabAccess[]
 }
 
 model CollabAccess {
-  id        String  @id @default(cuid())
-  planId    String
-  plan      Plan    @relation(fields: [planId], references: [id])
-  accountId String
-  Account   Account @relation(fields: [accountId], references: [userId])
+  id     String   @id @default(cuid())
+  planId String
+  plan   Plan     @relation(fields: [planId], references: [id])
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+  owner  Boolean?
 }
 
 // Necessary for Next auth
 model Account {
-  id                String         @id @default(cuid())
-  userId            String         @unique
+  id                String  @id @default(cuid())
+  userId            String  @unique
   type              String
   provider          String
   providerAccountId String
@@ -51,9 +52,7 @@ model Account {
   scope             String?
   id_token          String? // @db.Text
   session_state     String?
-  user              User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  Plan              Plan[]
-  CollabAccess      CollabAccess[]
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -67,13 +66,15 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String         @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?        @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+  Plan          Plan[]
+  CollabAccess  CollabAccess[]
 }
 
 model VerificationToken {

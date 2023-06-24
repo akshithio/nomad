@@ -9,7 +9,7 @@ export const travelRouter = createTRPCRouter({
   getAllPlans: protectedProcedure.query(async ({ ctx }) => {
     return await ctx.prisma.collabAccess.findMany({
       where: {
-        accountId: ctx.session.user.id,
+        userId: ctx.session.user.id,
       },
     });
   }),
@@ -21,7 +21,8 @@ export const travelRouter = createTRPCRouter({
         CollabAccess: {
           create: [
             {
-              accountId: ctx.session.user.id,
+              userId: ctx.session.user.id,
+              owner: true
             },
           ],
         },
