@@ -25,7 +25,7 @@ model Plan {
   startDate    DateTime
   endDate      DateTime
   ownerId      String
-  owner        Account        @relation(fields: [ownerId], references: [id])
+  owner        Account        @relation(fields: [ownerId], references: [userId])
   CollabAccess CollabAccess[]
 }
 
@@ -34,13 +34,13 @@ model CollabAccess {
   planId    String
   plan      Plan    @relation(fields: [planId], references: [id])
   accountId String
-  Account   Account @relation(fields: [accountId], references: [id])
+  Account   Account @relation(fields: [accountId], references: [userId])
 }
 
 // Necessary for Next auth
 model Account {
   id                String         @id @default(cuid())
-  userId            String
+  userId            String         @unique
   type              String
   provider          String
   providerAccountId String

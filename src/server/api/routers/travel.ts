@@ -3,6 +3,7 @@ import {
   protectedProcedure,
 } from "@component/server/api/trpc";
 import { Plan } from "../types";
+import { z } from "zod";
 
 export const travelRouter = createTRPCRouter({
   getAllPlans: protectedProcedure.query(async ({ ctx }) => {
@@ -13,7 +14,7 @@ export const travelRouter = createTRPCRouter({
     });
   }),
   newPlan: protectedProcedure.input(Plan).mutation(async ({ ctx, input }) => {
-    await ctx.prisma.plan.create({
+    return await ctx.prisma.plan.create({
       data: {
         ...input,
         ownerId: ctx.session.user.id,
@@ -27,4 +28,13 @@ export const travelRouter = createTRPCRouter({
       },
     });
   }),
+  getPlan: protectedProcedure
+    .input(z.string())
+    .query(async ({ ctx, input: id }) => {
+      return await ctx.prisma.plan.findFirst({
+        where: {
+          id,
+        },
+      });
+    }),
 });

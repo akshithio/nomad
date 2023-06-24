@@ -15,7 +15,6 @@ export default function Home() {
       <main className="flex min-h-screen w-screen flex-col overflow-x-clip">
         <Navbar />
         <div>
-
           <Tabs.Root>
             <Tabs.List>
               <Tabs.Trigger value="timeline">Timeline</Tabs.Trigger>
