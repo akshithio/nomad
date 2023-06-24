@@ -15,27 +15,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Plan {
+model Journey {
   id           String         @id @default(cuid())
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
   name         String
+  status       String
   description  String
-  location     String
+  fromLocation String
+  toLocation String
   startDate    DateTime
   endDate      DateTime
   ownerId      String
   owner        User           @relation(fields: [ownerId], references: [id])
   CollabAccess CollabAccess[]
+  TimelineCard TimelineCard[]
 }
 
 model CollabAccess {
   id     String   @id @default(cuid())
-  planId String
-  plan   Plan     @relation(fields: [planId], references: [id])
+  journeyId String
+  journey   Journey     @relation(fields: [journeyId], references: [id])
   userId String
   user   User     @relation(fields: [userId], references: [id])
   owner  Boolean?
+}
+
+model TimelineCard {
+  id          String @id @default(cuid())
+  journeyId      String
+  journey        Journey   @relation(fields: [journeyId], references: [id])
+  type        String
+  title       String
+  description String
 }
 
 // Necessary for Next auth
@@ -73,7 +85,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  Plan          Plan[]
+  Journey          Journey[]
   CollabAccess  CollabAccess[]
 }
 

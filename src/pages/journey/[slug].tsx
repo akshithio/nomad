@@ -1,10 +1,20 @@
 import Head from "next/head";
-import Image from "next/image";
 import "cal-sans";
 import Navbar from "@component/components/ui/Navbar";
 import * as Tabs from "@radix-ui/react-tabs";
+import { useSession } from "next-auth/react";
+import { api } from "@component/utils/api";
+import { useRouter } from "next/router";
 
-export default function Home() {
+export default function JourneySlug() {
+  const router = useRouter();
+  const { data: sessionData } = useSession();
+
+  const { data: timeline } = api.timeline.getTimeline.useQuery(
+    router.query.slug as string,
+    { enabled: sessionData?.user !== undefined }
+  );
+
   return (
     <>
       <Head>
@@ -22,7 +32,9 @@ export default function Home() {
               <Tabs.Trigger value="todos">Todos</Tabs.Trigger>
               <Tabs.Trigger value="misc">Docs & Misc</Tabs.Trigger>
             </Tabs.List>
-            <Tabs.Content value="timeline">Timeline Goes Here</Tabs.Content>
+            <Tabs.Content value="timeline">
+              {JSON.stringify(timeline)}
+            </Tabs.Content>
             <Tabs.Content value="share">Share Goes Here</Tabs.Content>
             <Tabs.Content value="todos">Todos Go Here</Tabs.Content>
             <Tabs.Content value="misc">Misc Goes Here</Tabs.Content>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "cal-sans";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 
 export default function Home(props: any) {
   return (
@@ -22,7 +22,6 @@ export default function Home(props: any) {
               {props.sessionData && (
                 <span>Logged in as {props.sessionData.user?.name}</span>
               )}
-              {props.data && <span> - {JSON.stringify(props.data)}</span>}
             </p>
             {/* TODO: animate button translation */}
             <button

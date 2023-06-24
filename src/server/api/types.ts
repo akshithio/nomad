@@ -1,9 +1,18 @@
 import { z } from "zod";
 
-export const Plan = z.object({
+export const Journey = z.object({
   name: z.string(),
   description: z.string(),
-  location: z.string(),
+  fromLocation: z.string(),
+  toLocation: z.string(),
+  status: z.string(),
   startDate: z.date(),
   endDate: z.date(),
+});
+
+export const Timeline = z.object({
+  title: z.string(),
+  type: z.string(),
+  description: z.string(),
+  journeyId: z.string(),
 });

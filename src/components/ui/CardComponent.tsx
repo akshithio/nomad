@@ -10,7 +10,7 @@ interface componentProps {
   imageLink: string;
   imageNum: number;
   // Below is the journey / plan id that postgres should be automatically updating? it is set to number temporarily
-  id: number;
+  id: string;
 }
 
 export default function CardComponent(props: componentProps) {
