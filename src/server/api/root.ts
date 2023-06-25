@@ -3,6 +3,7 @@ import { createTRPCRouter } from "@component/server/api/trpc";
 import { collabRouter } from "./routers/collab";
 import { timelineRouter } from "./routers/timeline";
 import { todoRouter } from "./routers/todo";
+import { flightRouter } from "./routers/flight";
 /**
  * This is the primary router for your server.
  *
@@ -13,6 +14,7 @@ export const appRouter = createTRPCRouter({
   timeline: timelineRouter,
   collab: collabRouter,
   todo: todoRouter,
+  flight: flightRouter
 });
 
 // export type definition of API
