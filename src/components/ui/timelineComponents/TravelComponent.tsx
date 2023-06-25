@@ -1,23 +1,14 @@
-interface travelInteface {
-  toAirport: string;
-  fromAirport: string;
-  fromTime: string;
-  toTime: string;
-  layover: boolean;
-  layoverDetails: string;
-}
-
-export default function TravelComponent(props: travelInteface) {
+export default function TravelComponent(props) {
   return (
     <div className="right container relative flex">
       <div className="relative w-[45%] rounded-md border-[1px] px-4 py-4 shadow-md">
         <div className="absolute right-4 rounded-md bg-yellow-300 px-2 font-cal text-[12px]">
           In Progress
         </div>
-        <div className="rounded-md w-fit bg-gray-300 px-2 font-cal text-[12px]">
+        <div className="w-fit rounded-md bg-gray-300 px-2 font-cal text-[12px]">
           Travel: Departing
         </div>
-        <h1 className="font-cal text-4xl mt-1">
+        <h1 className="mt-1 font-cal text-4xl">
           {props.fromAirport} &nbsp;→&nbsp; {props.toAirport}
         </h1>
         <h1 className="mt-2 font-inter text-sm text-gray-600">

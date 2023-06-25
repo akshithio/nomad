@@ -44,7 +44,6 @@ export default function Timeline() {
         phone="+1 212-840-9600"
         price={75}
         type="in"
-        status="completed"
       />
       <TravelComponent
         fromAirport="HYD"
