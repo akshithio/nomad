@@ -9,11 +9,6 @@ export default function Navbar(props: any) {
   const { data: sessionData } = useSession();
   console.log(sessionData);
 
-  const { data } = api.travel.getAllPlans.useQuery(
-    undefined, // no input
-    { enabled: sessionData?.user !== undefined }
-  );
-
   return (
     <div className="flex w-full items-center bg-gray-100 px-5 py-5">
       <div className="flex items-center justify-center">
@@ -25,7 +20,7 @@ export default function Navbar(props: any) {
           <Popover.Trigger asChild>
             <button>
               <Image
-                src={sessionData.user?.image}
+                src={sessionData && sessionData.user?.image}
                 alt="profile picture"
                 height={36}
                 width={36}

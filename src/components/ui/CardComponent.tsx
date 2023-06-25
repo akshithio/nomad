@@ -7,7 +7,7 @@ interface componentProps {
   toPlace: string;
   fromDate: Date;
   toDate: Date;
-  imageLink: string;
+  imageLink: string?;
   imageNum: number;
   // Below is the journey / plan id that postgres should be automatically updating? it is set to number temporarily
   id: string;
@@ -16,19 +16,19 @@ interface componentProps {
 export default function CardComponent(props: componentProps) {
   let string: string;
   switch (props.imageNum) {
-    case 1:
+    case 0:
       string =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145549353750568/Wallpapers_4.jpg";
       break;
-    case 2:
+    case 1:
       string =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145550263930920/Wallpapers_5.jpg";
       break;
-    case 3:
+    case 2:
       string =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145551367020644/Wallpapers_7.jpg";
       break;
-    case 4:
+    case 3s:
       string =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145552105214043/Wallpapers_1.jpg";
       break;

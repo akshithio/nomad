@@ -13,6 +13,8 @@ export default function Home() {
     enabled: sessionData?.user !== undefined,
   });
 
+  const { mutate } = api.journey.newPlan.useMutation()
+
   return (
     <>
       <Head>
@@ -48,17 +50,30 @@ export default function Home() {
               journeys.map((i) => (
                 <CardComponent
                   key={i.id}
-                  id={i.id}
-                  imageNum={1}
+                  id={i.journey.id}
+                  imageNum={Math.floor(Math.random() * 5)}
                   fromDate={i.journey.startDate}
                   toDate={i.journey.endDate}
                   fromPlace={i.journey.fromLocation}
                   toPlace={i.journey.toLocation}
                   status={i.journey.status}
-                  imageLink="ttps://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
+                  imageLink={sessionData && (sessionData.user.image || "https://media.discordapp.net/attachments/1059102111985582102/1122330825858486323/ns8230-image.jpg?width=739&height=554")}
                 />
               ))}
           </div>
+          <button onClick={() => {
+            mutate({
+              name:"Summer",
+              status: "on_going",
+              description: "My summer vacation travel plan",
+              fromLocation: "India",
+              toLocation: "Singapore",
+              startDate: new Date(),
+              endDate: new Date()
+            })
+          }}>
+                Add info [ test ]
+          </button>
         </main>
       )}
     </>

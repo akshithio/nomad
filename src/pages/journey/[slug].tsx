@@ -15,6 +15,9 @@ export default function JourneySlug() {
     { enabled: sessionData?.user !== undefined }
   );
 
+
+const { mutate: timelineCardMutate } = api.timeline.newTimelineCard.useMutation()
+
   return (
     <>
       <Head>
@@ -34,6 +37,16 @@ export default function JourneySlug() {
             </Tabs.List>
             <Tabs.Content value="timeline">
               {JSON.stringify(timeline)}
+              <button onClick={() => {
+            timelineCardMutate({
+              title:"Eiffel tower",
+              type: "on_going",
+              description: "My summer vacation travel plan",
+              journeyId: String(router.query.slug)
+            })
+          }}>
+                Add info [ test ]
+          </button>
             </Tabs.Content>
             <Tabs.Content value="share">Share Goes Here</Tabs.Content>
             <Tabs.Content value="todos">Todos Go Here</Tabs.Content>

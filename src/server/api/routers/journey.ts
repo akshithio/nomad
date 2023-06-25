@@ -12,7 +12,7 @@ export const journeyRouter = createTRPCRouter({
         userId: ctx.session.user.id,
       },
       include: {
-        journey: true,
+        journey: true
       },
     });
   }),
