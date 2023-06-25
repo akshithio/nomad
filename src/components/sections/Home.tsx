@@ -4,6 +4,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { api } from "@component/utils/api";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { Cross2Icon } from "@radix-ui/react-icons";
 
 export default function Home() {
   const router = useRouter();
@@ -23,20 +24,57 @@ export default function Home() {
       <div className="flex">
         <div className="mt-8 h-[75vh] w-[65vw] rounded-md border-[1px] border-solid border-black"></div>
         <div>
-          <div className="ml-8 mt-8 h-[55vh] w-[31vw] rounded-md border-[1px] border-solid border-black"></div>
+          <div className="ml-8 mt-8 h-[55vh] w-[31vw] rounded-md border-[1px] border-solid border-black">
+            
+          </div>
           <div className="ml-8 mt-8 h-[17.5vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
             <h1 className="font-cal text-3xl ">Share</h1>
-
             <div className="mt-3 flex w-full flex-col items-center">
               <Dialog.Root>
                 <Dialog.Trigger>
-                  <button className="rounded-md bg-blue-400 px-5 py-1 font-cal text-2xl ">
+                  <button className="rounded-md bg-blue-400 px-5 py-1 font-cal text-2xl hover:cursor-pointer">
                     Share
                   </button>
                 </Dialog.Trigger>
                 <Dialog.Portal>
-                  <Dialog.Overlay />
-                  <Dialog.Content></Dialog.Content>
+                  <Dialog.Overlay className="DialogOverlay rounded-md" />
+                  <Dialog.Content className="DialogContent">
+                    <Dialog.Title className="DialogTitle font-cal text-2xl">
+                      Share Journey
+                    </Dialog.Title>
+                    <Dialog.Description className="DialogDescription">
+                      Add someone to your journey to allow them to edit your
+                      timeline, documents & todos together.
+                    </Dialog.Description>
+                    <Dialog.Description className="DialogDescription">
+                      User ID can be obtained from Profile Picture &gt; Edit
+                      Profile &gt; Copy ID
+                    </Dialog.Description>
+                    <fieldset className="Fieldset">
+                      <label className="Label ml-[-2rem]" htmlFor="username">
+                        User ID:
+                      </label>
+                      <input className="Input" id="username" />
+                    </fieldset>
+                    <div
+                      style={{
+                        display: "flex",
+                        marginTop: 25,
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      <Dialog.Close asChild>
+                        <button className="border-2 border-solid border-black px-2 py-1 font-cal">
+                          Save changes
+                        </button>
+                      </Dialog.Close>
+                    </div>
+                    <Dialog.Close asChild>
+                      <button className="IconButton" aria-label="Close">
+                        <Cross2Icon />
+                      </button>
+                    </Dialog.Close>
+                  </Dialog.Content>
                 </Dialog.Portal>
               </Dialog.Root>
 
