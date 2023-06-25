@@ -37,7 +37,7 @@ export default function JourneySlug() {
       </Head>
       <main className="flex min-h-screen w-screen flex-col overflow-x-clip">
         <Navbar />
-        <div>
+        <div className="overflow-x-clip">
           <Tabs.Root defaultValue="overview">
             <Tabs.List className="ml-4 mt-4 w-fit rounded-md bg-gray-100 px-4 py-2 font-cal text-xl text-gray-500">
               <Tabs.Trigger value="timeline">Overview</Tabs.Trigger>
@@ -55,7 +55,7 @@ export default function JourneySlug() {
               </Tabs.Trigger>
             </Tabs.List>
             <Tabs.Content value="overview">Overview Goes Here</Tabs.Content>
-            <Tabs.Content value="timeline">
+            <Tabs.Content value="timeline" className="overflow-x-clip">
               {/* {JSON.stringify(timeline)}
               <button
                 onClick={() => {
