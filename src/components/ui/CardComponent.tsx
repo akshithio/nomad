@@ -7,29 +7,25 @@ interface componentProps {
   toPlace: string;
   fromDate: Date;
   toDate: Date;
-  imageLink: string?;
+  imageLink?: string;
   imageNum: number;
   // Below is the journey / plan id that postgres should be automatically updating? it is set to number temporarily
   id: string;
 }
 
 export default function CardComponent(props: componentProps) {
-  let string: string;
+  let imgBgLink = "https://cdn.discordapp.com/attachments/818736658819448845/1122145549353750568/Wallpapers_4.jpg";
   switch (props.imageNum) {
-    case 0:
-      string =
-        "https://cdn.discordapp.com/attachments/818736658819448845/1122145549353750568/Wallpapers_4.jpg";
-      break;
     case 1:
-      string =
+      imgBgLink =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145550263930920/Wallpapers_5.jpg";
       break;
     case 2:
-      string =
+      imgBgLink =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145551367020644/Wallpapers_7.jpg";
       break;
     case 3:
-      string =
+      imgBgLink =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145552105214043/Wallpapers_1.jpg";
       break;
   }
@@ -41,7 +37,7 @@ export default function CardComponent(props: componentProps) {
     >
       <div className="z-0 h-[60%] w-full overflow-clip">
         <Image
-          src={string}
+          src={imgBgLink}
           alt="random banner image"
           width={6016}
           height={2000}
