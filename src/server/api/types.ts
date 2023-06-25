@@ -16,3 +16,8 @@ export const Timeline = z.object({
   description: z.string(),
   journeyId: z.string(),
 });
+
+export const Todo = z.object({
+  text: z.string(),
+  journeyId: z.string(),
+});

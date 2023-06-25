@@ -28,7 +28,7 @@ export default function CardComponent(props: componentProps) {
       string =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145551367020644/Wallpapers_7.jpg";
       break;
-    case 3s:
+    case 3:
       string =
         "https://cdn.discordapp.com/attachments/818736658819448845/1122145552105214043/Wallpapers_1.jpg";
       break;

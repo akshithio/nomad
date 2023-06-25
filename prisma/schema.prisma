@@ -56,7 +56,7 @@ model TodoEntry {
   journeyId String
   journey   Journey @relation(fields: [journeyId], references: [id])
   text      String
-  completed Boolean
+  completed Boolean @default(false)
 }
 
 // Necessary for Next auth

@@ -15,8 +15,16 @@ export default function JourneySlug() {
     { enabled: sessionData?.user !== undefined }
   );
 
+  const { mutate: timelineCardMutate } =
+    api.timeline.newTimelineCard.useMutation();
 
-const { mutate: timelineCardMutate } = api.timeline.newTimelineCard.useMutation()
+    const { data: todo } = api.todo.getTodos.useQuery(
+      router.query.slug as string,
+      { enabled: sessionData?.user !== undefined }
+    );
+  
+    const { mutate: todoAdd } =
+      api.todo.newTodo.useMutation();
 
   return (
     <>
@@ -37,19 +45,33 @@ const { mutate: timelineCardMutate } = api.timeline.newTimelineCard.useMutation(
             </Tabs.List>
             <Tabs.Content value="timeline">
               {JSON.stringify(timeline)}
-              <button onClick={() => {
-            timelineCardMutate({
-              title:"Eiffel tower",
-              type: "on_going",
-              description: "My summer vacation travel plan",
-              journeyId: String(router.query.slug)
-            })
-          }}>
+              <button
+                onClick={() => {
+                  timelineCardMutate({
+                    title: "Eiffel tower",
+                    type: "on_going",
+                    description: "My summer vacation travel plan",
+                    journeyId: String(router.query.slug),
+                  });
+                }}
+              >
                 Add info [ test ]
-          </button>
+              </button>
             </Tabs.Content>
             <Tabs.Content value="share">Share Goes Here</Tabs.Content>
-            <Tabs.Content value="todos">Todos Go Here</Tabs.Content>
+            <Tabs.Content value="todos">
+            {JSON.stringify(todo)}
+              <button
+                onClick={() => {
+                  todoAdd({
+                    text: "my todo card 1",
+                    journeyId: String(router.query.slug),
+                  });
+                }}
+              >
+                Add info [ test ]
+              </button>
+            </Tabs.Content>
             <Tabs.Content value="misc">Misc Goes Here</Tabs.Content>
           </Tabs.Root>
         </div>
