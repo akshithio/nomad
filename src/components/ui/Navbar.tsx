@@ -3,8 +3,8 @@ import Link from "next/link";
 import * as Popover from "@radix-ui/react-popover";
 import { ExitIcon, PersonIcon } from "@radix-ui/react-icons";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { api } from "@component/utils/api";
 
+// @ts-expect-error anything
 export default function Navbar(props: any) {
   const { data: sessionData } = useSession();
   console.log(sessionData);
@@ -23,6 +23,7 @@ export default function Navbar(props: any) {
           <Popover.Trigger asChild>
             <button>
               <Image
+              //@ts-expect-error image
                 src={sessionData && sessionData.user?.image}
                 alt="profile picture"
                 height={36}

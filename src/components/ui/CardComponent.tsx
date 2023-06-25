@@ -93,7 +93,7 @@ export default function CardComponent(props: componentProps) {
       </div>
       <Image
         className="absolute left-[5%] top-[52.5%] rounded-full"
-        src={props.imageLink}
+        src={props.imageLink as string}
         alt="profile picture"
         height={36}
         width={36}

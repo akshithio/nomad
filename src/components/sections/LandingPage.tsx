@@ -1,8 +1,9 @@
 import Image from "next/image";
 import "cal-sans";
 import { signIn, signOut } from "next-auth/react";
+import type { Session } from "next-auth";
 
-export default function Home(props: any) {
+export default function Home(props: { sessionData: Session }) {
   return (
     <>
       <Image

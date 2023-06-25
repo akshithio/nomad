@@ -15,6 +15,13 @@ export const Timeline = z.object({
   type: z.string(),
   description: z.string(),
   journeyId: z.string(),
+  status: z.string(),
+  fromTime: z.date(),
+  toTime: z.date(),
+  location: z.string(),
+  phone: z.string(),
+  cost: z.string(),
+  layovers: z.array(z.string())
 });
 
 export const Flight = z.object({

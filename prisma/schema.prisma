@@ -42,28 +42,37 @@ model CollabAccess {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   owner     Boolean?
+  
 }
 
 model TimelineCard {
-  id          String  @id @default(cuid())
-  journeyId   String
-  journey     Journey @relation(fields: [journeyId], references: [id])
-  type        String
-  title       String
-  description String
+  id            String    @id @default(cuid())
+  journeyId     String
+  journey       Journey   @relation(fields: [journeyId], references: [id])
+  status String
+  type          String
+  title         String
+  description   String
+  fromtTime     DateTime?
+  toTime        DateTime?
+  location      String?
+  phone         String?
+  cost          String?
+  layovers      String[]
 }
 
 model TrackedFlight {
-  id          String  @id @default(cuid())
+  id          String   @id @default(cuid())
   journeyId   String
-  journey     Journey @relation(fields: [journeyId], references: [id])
-  flightCode String
+  journey     Journey  @relation(fields: [journeyId], references: [id])
+  flightCode  String
   name        String
   fromAirport String
   toAirport   String
   departure   DateTime
   arrival     DateTime
 }
+
 model TodoEntry {
   id        String  @id @default(cuid())
   journeyId String

@@ -19,7 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "@component/*": ["./src/*"]
-    }
+    },
   },
   "include": [
     ".eslintrc.cjs",

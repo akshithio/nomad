@@ -56,6 +56,16 @@ export default function Timeline() {
         status="inProgress"
         type="Departing"
       />
+            <CheckInComponent
+        status="completed"
+        title="Hilton Check-In"
+        fromTime="Jun 25 23:00 (ET)"
+        address="136 W 42nd St, New York, NY 10036, United States"
+        phone="+1 212-840-9600"
+        price={75}
+        type="in"
+        status="completed"
+      />
     </div>
   );
 }
