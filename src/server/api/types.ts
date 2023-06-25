@@ -17,6 +17,18 @@ export const Timeline = z.object({
   journeyId: z.string(),
 });
 
+export const Flight = z.object({
+  text: z.string(),
+  journeyId: z.string(),
+  flightCode: z.string(),
+  name: z.string(),
+  fromAirport: z.string(),
+  toAirport: z.string(),
+  departure: z.date(),
+  arrival: z.date()
+  
+});
+
 export const Todo = z.object({
   text: z.string(),
   journeyId: z.string(),

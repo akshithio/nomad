@@ -16,22 +16,23 @@ datasource db {
 }
 
 model Journey {
-  id           String         @id @default(cuid())
-  image        Int
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
-  name         String
-  status       String
-  description  String
-  fromLocation String
-  toLocation   String
-  startDate    DateTime
-  endDate      DateTime
-  ownerId      String
-  owner        User           @relation(fields: [ownerId], references: [id])
-  CollabAccess CollabAccess[]
-  TimelineCard TimelineCard[]
-  TodoEntry    TodoEntry[]
+  id            String          @id @default(cuid())
+  image         Int
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  name          String
+  status        String
+  description   String
+  fromLocation  String
+  toLocation    String
+  startDate     DateTime
+  endDate       DateTime
+  ownerId       String
+  owner         User            @relation(fields: [ownerId], references: [id])
+  CollabAccess  CollabAccess[]
+  TimelineCard  TimelineCard[]
+  TodoEntry     TodoEntry[]
+  TrackedFlight TrackedFlight[]
 }
 
 model CollabAccess {
@@ -52,6 +53,17 @@ model TimelineCard {
   description String
 }
 
+model TrackedFlight {
+  id          String  @id @default(cuid())
+  journeyId   String
+  journey     Journey @relation(fields: [journeyId], references: [id])
+  flightCode String
+  name        String
+  fromAirport String
+  toAirport   String
+  departure   DateTime
+  arrival     DateTime
+}
 model TodoEntry {
   id        String  @id @default(cuid())
   journeyId String
