@@ -1,9 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import * as Popover from "@radix-ui/react-popover";
 import { ExitIcon, PersonIcon } from "@radix-ui/react-icons";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { api } from "@component/utils/api";
-import Router from "next/router";
 
 export default function Navbar(props: any) {
   const { data: sessionData } = useSession();
@@ -11,10 +11,13 @@ export default function Navbar(props: any) {
 
   return (
     <div className="flex w-full items-center bg-gray-100 px-5 py-5">
-      <div className="flex items-center justify-center">
-        <Image src="/logo.svg" alt="nomad logo" width={32} height={32} />
-        <h1 className="ml-3 font-cal text-3xl font-bold">Nomad</h1>
-      </div>
+      <Link href="/">
+        <div className="flex items-center justify-center">
+          <Image src="/logo.svg" alt="nomad logo" width={32} height={32} />
+          <h1 className="ml-3 font-cal text-3xl font-bold">Nomad</h1>
+        </div>
+      </Link>
+
       <div className="absolute right-5">
         <Popover.Root>
           <Popover.Trigger asChild>
@@ -43,11 +46,11 @@ export default function Navbar(props: any) {
                   className="relative flex w-full items-center border-b-[1px] border-black p-3"
                 >
                   <h1>Logout</h1>
-                  <ExitIcon className="absolute right-4" />
+                  <ExitIcon className="absolute right-10" />
                 </button>
                 <button className="relative flex w-full items-center p-3">
                   <h1>Edit Profile</h1>
-                  <PersonIcon className="absolute right-4" />
+                  <PersonIcon className="absolute right-10" />
                 </button>
               </div>
             </Popover.Content>

@@ -120,7 +120,7 @@ export default function Home() {
                     })
 
                   }}
-                  className="absolute bottom-6 right-6 mt-8 h-fit rounded-md bg-black px-4 py-3 font-cal text-white"
+                  className="absolute bottom-6 right-6 mt-8 h-fit rounded-md bg-black px-4 py-3 font-cal text-white hover:cursor-pointer"
                 >
                   Make Journey 🚀
                 </button>
@@ -167,6 +167,23 @@ export default function Home() {
                 />
               ))}
           </div>
+          <button
+            className="hover:cursor-pointer"
+            onClick={() => {
+              console.log("Clicked");
+              mutate({
+                name: "Summer",
+                status: "on_going",
+                description: "My summer vacation travel plan",
+                fromLocation: "India",
+                toLocation: "Singapore",
+                startDate: new Date(),
+                endDate: new Date(),
+              });
+            }}
+          >
+            Add info [ test ]
+          </button>
         </main>
       )}
     </>

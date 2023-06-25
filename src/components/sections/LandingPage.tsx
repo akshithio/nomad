@@ -25,7 +25,7 @@ export default function Home(props: any) {
             </p>
             {/* TODO: animate button translation */}
             <button
-              className="mt-4 border-2 border-black px-5 py-1 font-cal hover:px-8 "
+              className="mt-4 border-black border-[4px] px-5 py-1 font-cal hover:px-8 "
               onClick={
                 props.sessionData ? () => void signOut() : () => void signIn()
               }

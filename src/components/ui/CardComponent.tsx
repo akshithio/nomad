@@ -14,7 +14,8 @@ interface componentProps {
 }
 
 export default function CardComponent(props: componentProps) {
-  let imgBgLink = "https://cdn.discordapp.com/attachments/818736658819448845/1122145549353750568/Wallpapers_4.jpg";
+  let imgBgLink =
+    "https://cdn.discordapp.com/attachments/818736658819448845/1122145549353750568/Wallpapers_4.jpg";
   switch (props.imageNum) {
     case 1:
       imgBgLink =
@@ -51,7 +52,7 @@ export default function CardComponent(props: componentProps) {
         )}
         {props.status === "recentlyCompleted" && (
           <div className="absolute right-2 rounded-md bg-green-300 px-2 font-cal text-[12px]">
-            Trip Done
+            In 6 Days
           </div>
         )}
         {props.status === "expired" && (
