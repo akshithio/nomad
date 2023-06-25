@@ -11,6 +11,11 @@ import * as Toast from "@radix-ui/react-toast";
 export default function Home() {
   const [open, setOpen] = useState(false);
 
+  const [fromLocation, setFromLocation] = useState("")
+  const [toLocation, setToLocation] = useState("")
+  const [departing, setDeparting] = useState("")
+  const [returning, setReturning] = useState("")
+
   const timerRef = useRef(0);
 
   useEffect(() => {
@@ -43,11 +48,14 @@ export default function Home() {
               {/* Add Title Input saying Beach Vibes and then like a book ticket icon at the bottom, also add Toast */}
               {/* TODO: Fix Responsiveness to allow for the input box to expand along with the columns later */}
               <div className="flex">
+                
                 <div className="relative mt-5 h-16 items-center rounded-sm border-[1px] border-black px-2 py-1">
                   <input
                     type="text"
                     className="ml-[-2px] mt-2 px-2 focus:outline-none"
                     placeholder="Enter City..."
+                    value={fromLocation}
+                    onChange={(i) => setFromLocation(i.target.value)}
                   />
                   <div className="absolute bottom-0 left-0 h-[20px] w-full bg-black px-2 font-cal text-[12px] text-white">
                     From
@@ -58,6 +66,8 @@ export default function Home() {
                     type="text"
                     className="ml-[-2px] mt-2 px-2 focus:outline-none"
                     placeholder="Enter City..."
+                    value={toLocation}
+                    onChange={(i) => setToLocation(i.target.value)}
                   />
                   <div className="absolute bottom-0 left-0 h-[20px] w-full bg-black px-2 font-cal text-[12px] text-white">
                     To
@@ -69,7 +79,8 @@ export default function Home() {
                   <input
                     type="date"
                     className="ml-[-2px] mt-1 px-2 focus:outline-none"
-                    placeholder="Enter City..."
+                    value={departing}
+                    onChange={(i) => {setDeparting(i.target.value)}}
                   />
                   <div className="absolute bottom-0 left-0 h-[20px] w-full bg-black px-2 font-cal text-[12px] text-white">
                     Departing
@@ -79,12 +90,14 @@ export default function Home() {
                   <input
                     type="date"
                     className="mt- ml-[-2px] px-2 focus:outline-none"
-                    placeholder="Enter City..."
+                    value={returning}
+                    onChange={(i) => {setReturning(i.target.value)}}
                   />
                   <div className="absolute bottom-0 left-0 h-[20px] w-full bg-black px-2 font-cal text-[12px] text-white">
                     Returning
                   </div>
                 </div>
+                
               </div>
               <Toast.Provider swipeDirection="right">
                 <button
@@ -94,6 +107,18 @@ export default function Home() {
                     timerRef.current = window.setTimeout(() => {
                       setOpen(true);
                     }, 100);
+
+                    //TODO: name, status, desc
+                    mutate({
+                      name: `${fromLocation}-${toLocation}`,
+                      status: "Soon",
+                      description: "My vacation",
+                      fromLocation,
+                      toLocation,
+                      startDate: new Date(departing),
+                      endDate: new Date(returning),
+                    })
+
                   }}
                   className="absolute bottom-6 right-6 mt-8 h-fit rounded-md bg-black px-4 py-3 font-cal text-white"
                 >
@@ -128,7 +153,7 @@ export default function Home() {
                 <CardComponent
                   key={i.id}
                   id={i.journey.id}
-                  imageNum={Math.floor(Math.random() * 5)}
+                  imageNum={i.journey.image}
                   fromDate={i.journey.startDate}
                   toDate={i.journey.endDate}
                   fromPlace={i.journey.fromLocation}
@@ -142,21 +167,6 @@ export default function Home() {
                 />
               ))}
           </div>
-          <button
-            onClick={() => {
-              mutate({
-                name: "Summer",
-                status: "on_going",
-                description: "My summer vacation travel plan",
-                fromLocation: "India",
-                toLocation: "Singapore",
-                startDate: new Date(),
-                endDate: new Date(),
-              });
-            }}
-          >
-            Add info [ test ]
-          </button>
         </main>
       )}
     </>

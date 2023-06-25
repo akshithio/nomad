@@ -22,6 +22,7 @@ export const journeyRouter = createTRPCRouter({
       return await ctx.prisma.journey.create({
         data: {
           ...input,
+          image: Math.floor(Math.random() * 5),
           ownerId: ctx.session.user.id,
           CollabAccess: {
             create: [
