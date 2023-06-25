@@ -9,11 +9,10 @@ export default function Home(props: any) {
         className="absolute left-[6%] top-[4%] z-0"
         src="/bg.png"
         alt="background emojis"
-        width={1065}
-        height={990}
+        fill
       />
-      <main className="relative z-10 flex min-h-screen w-screen">
-        <div className="border-1 flex h-screen w-[70%] flex-col items-center justify-center border-black">
+      <main className="relative z-10 flex flex-col lg:flex-row min-h-screen">
+        <div className="border-1 flex h-screen lg:w-[70%] flex-col items-center justify-center border-black">
           <Image src="/logo.svg" alt="nomad logo" width={96} height={96} />
           <h1 className="ml-3 font-cal text-6xl font-bold">Nomad</h1>
           <h1 className="mt-2 font-serif">Travelling Simplified.</h1>
@@ -34,7 +33,7 @@ export default function Home(props: any) {
             </button>
           </div>
         </div>
-        <div className="h-screen w-[30%] bg-gray-200 px-5 py-8 font-serif">
+        <div className="h-full lg:w-[30%] bg-gray-100 px-5 py-8 font-serif">
           <h1>
             <span className="font-cal text-[15px]">Nomad</span> simplifies the
             chaos that is itinerary planning by bringing together{" "}
@@ -53,7 +52,7 @@ export default function Home(props: any) {
             className="mt-6 grid grid-cols-2 grid-rows-3 gap-4
           "
           >
-            <div className="rounded-[5px] border-2 border-black px-2 py-2">
+            <div className="rounded-[5px] border-2 border-black px-2 py-3">
               <div className="flex">
                 <Image
                   src="/icons/flight.svg"
@@ -70,7 +69,7 @@ export default function Home(props: any) {
                 Don&apos;t get stuck in the details, leave them to us
               </h1>
             </div>
-            <div className="rounded-[5px] border-2 border-black px-2 py-2">
+            <div className="rounded-[5px] border-2 border-black px-2 py-3">
               {" "}
               <div className="flex">
                 <Image
@@ -87,7 +86,7 @@ export default function Home(props: any) {
                 Travelling together is fun, software should understand that :)
               </h1>
             </div>{" "}
-            <div className="rounded-[5px] border-2 border-black px-2 py-2">
+            <div className="rounded-[5px] border-2 border-black px-2 py-3">
               <div className="flex">
                 <Image
                   src="/icons/timer.svg"
@@ -102,7 +101,7 @@ export default function Home(props: any) {
                 want it.
               </h1>
             </div>{" "}
-            <div className="rounded-[5px] border-2 border-black px-2 py-2">
+            <div className="rounded-[5px] border-2 border-black px-2 py-3">
               <div className="flex">
                 <Image
                   src="/icons/notif.svg"
@@ -117,7 +116,7 @@ export default function Home(props: any) {
                 plans
               </h1>
             </div>{" "}
-            <div className="rounded-[5px] border-2 border-black px-2 py-2">
+            <div className="rounded-[5px] border-2 border-black px-2 py-3">
               <div className="flex">
                 <Image
                   src="/icons/todo.svg"
@@ -131,7 +130,7 @@ export default function Home(props: any) {
                 Forgot to pack your powerbank? Fear no more, we gotchu
               </h1>
             </div>{" "}
-            <div className="rounded-[5px] border-2 border-black px-2 py-2">
+            <div className="rounded-[5px] border-2 border-black px-2 py-3">
               <div className="flex">
                 <Image
                   src="/icons/document.svg"
@@ -167,7 +166,7 @@ export default function Home(props: any) {
             <h1 className="ml-4 mt-2">• tRPC: API requests made better 👍</h1>
           </ul>
 
-          <h1 className="absolute bottom-5">
+          <h1 className="mt-8">
             - Built by{" "}
             <a className="underline" target="_blank" href="https://akshith.io">
               Akshith
