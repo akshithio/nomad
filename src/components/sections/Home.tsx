@@ -62,7 +62,7 @@ export default function Home() {
 
             <div className="w-full border-[1px] border-solid border-black" />
 
-            <TodoList list={todos as unknown as Todo[]} />
+            <TodoList list={todos} />
           </div>
           <div className="ml-8 mt-8 h-[17.5vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
             <h1 className="font-cal text-3xl ">Share</h1>

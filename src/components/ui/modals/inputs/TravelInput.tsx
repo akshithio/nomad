@@ -1,4 +1,5 @@
 export default function TravelInput() {
+
   return (
     <>
       <fieldset className="Fieldset">
@@ -29,6 +30,7 @@ export default function TravelInput() {
           className="Input"
           id="from"
           placeholder="Enter 3 letter code for airports"
+
         />
       </fieldset>
       <fieldset className="Fieldset">
