@@ -27,8 +27,24 @@ export default function Home() {
       <div className="flex">
         <div className="mt-8 h-[75vh] w-[65vw] rounded-md border-[1px] border-solid border-black"></div>
         <div>
-          <div className="ml-8 mt-8 h-[55vh] w-[31vw] rounded-md border-[1px] border-solid border-black">
-            
+          <div className="ml-8 mt-8 h-[55vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
+            <h1 className="font-cal text-3xl ">Todos</h1>
+
+            <button
+              onClick={() => {
+                todoAdd({
+                  text: "my todo card 1",
+                  journeyId: String(router.query.slug),
+                });
+              }}
+            >
+              <TodoList
+                list={[
+                  { content: "First task", sourceComplete: false },
+                  { content: "First task", sourceComplete: false },
+                ]}
+              />
+            </button>
           </div>
           <div className="ml-8 mt-8 h-[17.5vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
             <h1 className="font-cal text-3xl ">Share</h1>
@@ -94,22 +110,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* <button
-        onClick={() => {
-          todoAdd({
-            text: "my todo card 1",
-            journeyId: String(router.query.slug),
-          });
-        }}
-      >
-        <TodoList
-          list={[
-            { content: "First task", sourceComplete: false },
-            { content: "First task", sourceComplete: false },
-          ]}
-        />
-      </button> */}
     </div>
   );
 }

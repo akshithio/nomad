@@ -133,6 +133,11 @@ button {
   box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
 }
 
+.TabsTrigger2[data-state="active"] {
+  color: black;
+
+}
+
 .TabsTriggerSpecial[data-state="active"] {
   color: #dc2626;
 
@@ -208,9 +213,6 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 450px;
-  max-height: 85vh;
   padding: 25px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }

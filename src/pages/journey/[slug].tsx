@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import { api } from "@component/utils/api";
 import { useRouter } from "next/router";
 import Timeline from "@component/components/sections/Timeline";
-
+import InputModal from "@component/components/ui/modals/InputModal";
 import Home from "@component/components/sections/Home";
 
 export default function JourneySlug() {
@@ -76,9 +76,14 @@ export default function JourneySlug() {
               >
               </button> */}
               <div className="m-8">
-                <h1 className=" font-cal text-4xl">
-                  Here&apos;s how things are lined up, {sessionData?.user?.name}
-                </h1>
+                <div className="relative flex w-[95vw] items-center">
+                  <h1 className=" font-cal text-4xl">
+                    Here&apos;s how things are lined up,{" "}
+                    {sessionData?.user?.name}
+                  </h1>
+                  <InputModal />
+                </div>
+
                 <div className="mt-16 w-full">
                   <Timeline />
                 </div>
