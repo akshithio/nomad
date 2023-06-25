@@ -9,7 +9,8 @@ export default function Home(props: any) {
         className="absolute left-[6%] top-[4%] z-0"
         src="/bg.png"
         alt="background emojis"
-        fill
+        height={971}
+        width={1096}
       />
       <main className="relative z-10 flex flex-col lg:flex-row min-h-screen">
         <div className="border-1 flex h-screen lg:w-[70%] flex-col items-center justify-center border-black">

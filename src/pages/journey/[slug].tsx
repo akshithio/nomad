@@ -67,7 +67,6 @@ export default function JourneySlug() {
                   });
                 }}
               >
-                Add info [ test ]
               </button> */}
               <div className="m-8">
                 <h1 className=" font-cal text-4xl">

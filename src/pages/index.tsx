@@ -41,8 +41,8 @@ export default function Home() {
         <main className="flex min-h-screen w-screen flex-col overflow-x-clip">
           <Navbar />
           <div className="flex pt-8">
-            <div className="relative ml-10 w-[32%] rounded-md border-[1px] border-black pb-16 pl-4 pt-4">
-              <h1 className="font-cal text-4xl">
+            <div className="relative ml-10 w-[32%] rounded-md border-[1px] border-black pb-16 pl-4 pt-8">
+              <h1 className="font-cal text-2xl">
                 Where we going today, {sessionData.user?.name}?
               </h1>
               {/* Add Title Input saying Beach Vibes and then like a book ticket icon at the bottom, also add Toast */}
@@ -182,84 +182,9 @@ export default function Home() {
               });
             }}
           >
-            Add info [ test ]
           </button>
         </main>
       )}
     </>
   );
-}
-
-{
-  /* <CardComponent
-              id={1}
-              imageNum={1}
-              fromDate={new Date(Date.now())}
-              toDate={new Date(Date.now())}
-              fromPlace="Hyderabad"
-              toPlace="New York"
-              status="inProgress"
-              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
-            />
-            <CardComponent
-              id={2}
-              imageNum={2}
-              fromDate={new Date(Date.now())}
-              toDate={new Date(Date.now())}
-              fromPlace="Istanbul"
-              toPlace="Milan"
-              status="recentlyCompleted"
-              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
-            />
-            <CardComponent
-              id={3}
-              imageNum={3}
-              fromDate={new Date(Date.now())}
-              toDate={new Date(Date.now())}
-              fromPlace="Moscow"
-              toPlace="Brasilia"
-              status="expired"
-              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
-            />
-            <CardComponent
-              id={4}
-              imageNum={4}
-              fromDate={new Date(Date.now())}
-              toDate={new Date(Date.now())}
-              fromPlace="Mumbai"
-              toPlace="Bangalore"
-              status="expired"
-              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
-            />
-
-            <CardComponent
-              id={5}
-              imageNum={2}
-              fromDate={new Date(Date.now())}
-              toDate={new Date(Date.now())}
-              fromPlace="Hyderabad"
-              toPlace="Goa"
-              status="recentlyCompleted"
-              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
-            />
-            <CardComponent
-              id={6}
-              imageNum={3}
-              fromDate={new Date(Date.now())}
-              toDate={new Date(Date.now())}
-              fromPlace="Austin"
-              toPlace="Philadelphia"
-              status="inProgress"
-              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
-            />
-            <CardComponent
-              id={7}
-              imageNum={1}
-              fromDate={new Date(Date.now())}
-              toDate={new Date(Date.now())}
-              fromPlace="London"
-              toPlace="Nairobi"
-              status="recentlyCompleted"
-              imageLink="https://cdn.discordapp.com/avatars/532914066558156800/9d5d95ac4e3b1ae1fe3cf9d5550fdb6b.png"
-            /> */
 }
