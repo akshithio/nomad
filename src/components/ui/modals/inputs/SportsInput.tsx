@@ -1,3 +1,5 @@
+import * as Dialog from "@radix-ui/react-dialog";
+
 export default function SportsInput() {
   return (
     <>
@@ -55,6 +57,20 @@ export default function SportsInput() {
           placeholder="Keep a track of some small things that help you remember this event"
         ></textarea>
       </fieldset>
+
+      <div
+        style={{
+          display: "flex",
+          marginTop: 25,
+          justifyContent: "flex-end",
+        }}
+      >
+        <Dialog.Close asChild>
+          <button className="border-2 border-solid border-black px-2 py-1 font-cal">
+            Confirm
+          </button>
+        </Dialog.Close>
+      </div>
     </>
   );
 }

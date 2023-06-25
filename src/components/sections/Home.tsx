@@ -38,7 +38,6 @@ export default function Home() {
         <div>
           <div className="overflow-y-scroll ml-8 mt-8 h-[55vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
             <h1 className="font-cal text-3xl ">Todos</h1>
-
             <div className="mb-4 ml-4 mt-4">
               <input
                 className="text-md w-[60%] rounded-md border-[1px] border-solid border-black p-2"
@@ -59,10 +58,10 @@ export default function Home() {
                 Add Todo
               </button>
             </div>
-
             <div className="w-full border-[1px] border-solid border-black" />
-
-            <TodoList list={todos} />
+            <div className="z-0">
+              <TodoList list={todos} />
+            </div>
           </div>
           <div className="ml-8 mt-8 h-[17.5vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
             <h1 className="font-cal text-3xl ">Share</h1>

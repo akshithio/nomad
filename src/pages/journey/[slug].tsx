@@ -21,8 +21,6 @@ export default function JourneySlug() {
   const { mutate: timelineCardMutate } =
     api.timeline.newTimelineCard.useMutation();
 
-
-
   return (
     <>
       <Head>
@@ -40,9 +38,6 @@ export default function JourneySlug() {
               </Tabs.Trigger>
               <Tabs.Trigger value="timeline" className="TabsTrigger ml-4">
                 Timeline
-              </Tabs.Trigger>
-              <Tabs.Trigger value="misc" className="TabsTrigger ml-4">
-                Docs & Misc
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="delete"

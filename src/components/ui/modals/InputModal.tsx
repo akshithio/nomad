@@ -69,106 +69,22 @@ export default function InputModal() {
               </Tabs.List>
 
               <Tabs.Content value="travel" className="ml-4 mt-4">
-                <TravelInput
-                  type={type}
-                  setType={setType}
-                  fromPlace={fromPlace}
-                  setFromPlace={setFromPlace}
-                  toPlace={toPlace}
-                  setToPlace={setToPlace}
-                  fromDate={fromDate}
-                  setFromDate={setFromDate}
-                  toDate={toDate}
-                  setToDate={setToDate}
-                  fromTime={fromTime}
-                  setFromTime={setFromTime}
-                  toTime={toTime}
-                  setToTime={setToTime}
-                  departingTimezone={departingTimezone}
-                  setDepartingTimezone={setDepartingTimezone}
-                  arrivingTimezone={arrivingTimezone}
-                  setArrivingTimezone={setArrivingTimezone}
-                  layovers={layovers}
-                  setLayovers={setLayovers}
-                  layoversTime={layoverTime}
-                  setLayoverTime={setLayoverTime}
-                />
+                <TravelInput />
               </Tabs.Content>
               <Tabs.Content value="accomodation" className="ml-4 mt-4">
-                <AccomodationInput
-                  type={type}
-                  setType={setType}
-                  title={title}
-                  setTitle={setTitle}
-                  fromTime={fromTime}
-                  setFromTime={setFromTime}
-                  fromDate={fromDate}
-                  setFromDate={setFromDate}
-                  location={location}
-                  setLocation={setLocation}
-                  phone={phone}
-                  setPhone={setPhone}
-                  cost={cost}
-                  setCost={setCost}
-                />
+                <AccomodationInput />
               </Tabs.Content>
               <Tabs.Content value="sports" className="ml-4 mt-4">
-                <SportsInput
-                  type={type}
-                  setType={setType}
-                  title={title}
-                  setTitle={setTitle}
-                  fromDate={fromDate}
-                  setFromDate={setFromDate}
-                  location={location}
-                  setLocation={setLocation}
-                  description={description}
-                  setDescription={setDescription}
-                />
+                <SportsInput />
               </Tabs.Content>
               <Tabs.Content value="shopping" className="ml-4 mt-4">
-                <ShoppingInput
-                  type={type}
-                  setType={setType}
-                  title={title}
-                  setTitle={setTitle}
-                  fromDate={fromDate}
-                  setFromDate={setFromDate}
-                  location={location}
-                  setLocation={setLocation}
-                  description={description}
-                  setDescription={setDescription}
-                />
+                <ShoppingInput />
               </Tabs.Content>
               <Tabs.Content value="monuments" className="ml-4 mt-4">
-                <MonumentInput
-                  type={type}
-                  setType={setType}
-                  title={title}
-                  setTitle={setTitle}
-                  fromDate={fromDate}
-                  setFromDate={setFromDate}
-                  location={location}
-                  setLocation={setLocation}
-                  description={description}
-                  setDescription={setDescription}
-                />
+                <MonumentInput />
               </Tabs.Content>
             </Tabs.Root>
 
-            <div
-              style={{
-                display: "flex",
-                marginTop: 25,
-                justifyContent: "flex-end",
-              }}
-            >
-              <Dialog.Close asChild>
-                <button className="border-2 border-solid border-black px-2 py-1 font-cal">
-                  Confirm
-                </button>
-              </Dialog.Close>
-            </div>
             <Dialog.Close asChild>
               <button className="IconButton" aria-label="Close">
                 <Cross2Icon />

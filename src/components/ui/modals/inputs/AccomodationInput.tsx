@@ -1,11 +1,30 @@
+import * as Dialog from "@radix-ui/react-dialog";
+import { useState } from "react";
+
 export default function AccomodationInput() {
+  const [typeAccomodation, setTypeAccomodation] = useState("");
+  const [title, setTitle] = useState("");
+  const [time, setTime] = useState("");
+  const [Date, setDate] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [price, setPrice] = useState("");
+
   return (
     <>
       <fieldset className="Fieldset">
         <label className="Label" htmlFor="name">
           Type
         </label>
-        <select name="type" id="type" className="pr-1 focus:outline-none">
+        <select
+          name="type"
+          id="type"
+          className="pr-1 focus:outline-none"
+          value={typeAccomodation}
+          onChange={(e) => {
+            setTypeAccomodation(e.target.value);
+          }}
+        >
           <option value="checkin">Checking In</option>
           <option value="checkout">Check Out</option>
         </select>
@@ -14,7 +33,15 @@ export default function AccomodationInput() {
         <label className="Label" htmlFor="username">
           Title
         </label>
-        <input className="Input" id="from" placeholder="Enter title" />
+        <input
+          className="Input"
+          id="from"
+          placeholder="Enter title"
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
       </fieldset>
       <fieldset className="Fieldset">
         <label className="Label" htmlFor="username">
@@ -25,6 +52,10 @@ export default function AccomodationInput() {
           className="Input"
           id="from"
           placeholder="Enter 3 letter code for airports"
+          value={time}
+          onChange={(e) => {
+            setTime(e.target.value);
+          }}
         />
       </fieldset>
       <fieldset className="Fieldset">
@@ -36,6 +67,10 @@ export default function AccomodationInput() {
           className="Input"
           id="from"
           placeholder="Enter 3 letter code for airports"
+          value={time}
+          onChange={(e) => {
+            setDate(e.target.value);
+          }}
         />
       </fieldset>
 
@@ -71,6 +106,20 @@ export default function AccomodationInput() {
         </label>
         <input className="Input" id="from" placeholder="Enter Price" />
       </fieldset>
+
+      <div
+        style={{
+          display: "flex",
+          marginTop: 25,
+          justifyContent: "flex-end",
+        }}
+      >
+        <Dialog.Close asChild>
+          <button className="border-2 border-solid border-black px-2 py-1 font-cal">
+            Confirm
+          </button>
+        </Dialog.Close>
+      </div>
     </>
   );
 }
