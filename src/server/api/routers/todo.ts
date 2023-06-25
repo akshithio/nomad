@@ -23,13 +23,13 @@ import {
         });
       }),
 
-    markTodoDone: protectedProcedure.input(z.string()).mutation(async ({ctx, input}) => {
+    markTodo: protectedProcedure.input(z.object({id: z.string(), markAs: z.boolean()})).mutation(async ({ctx, input}) => {
       return await ctx.prisma.todoEntry.update({
         where: {
-          id: input
+          id: input.id
         },
         data: {
-          completed: true
+          completed: input.markAs
         }
       })
     })
