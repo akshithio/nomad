@@ -5,7 +5,6 @@ import {
 import { z } from "zod";
 import { Timeline } from "../types";
 
-
 export const timelineRouter = createTRPCRouter({
   getTimeline: protectedProcedure
     .input(z.string())

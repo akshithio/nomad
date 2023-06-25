@@ -11,10 +11,10 @@ import * as Toast from "@radix-ui/react-toast";
 export default function Home() {
   const [open, setOpen] = useState(false);
 
-  const [fromLocation, setFromLocation] = useState("")
-  const [toLocation, setToLocation] = useState("")
-  const [departing, setDeparting] = useState("")
-  const [returning, setReturning] = useState("")
+  const [fromLocation, setFromLocation] = useState("");
+  const [toLocation, setToLocation] = useState("");
+  const [departing, setDeparting] = useState("");
+  const [returning, setReturning] = useState("");
 
   const timerRef = useRef(0);
 
@@ -48,7 +48,6 @@ export default function Home() {
               {/* Add Title Input saying Beach Vibes and then like a book ticket icon at the bottom, also add Toast */}
               {/* TODO: Fix Responsiveness to allow for the input box to expand along with the columns later */}
               <div className="flex">
-                
                 <div className="relative mt-5 h-16 items-center rounded-sm border-[1px] border-black px-2 py-1">
                   <input
                     type="text"
@@ -80,7 +79,9 @@ export default function Home() {
                     type="date"
                     className="ml-[-2px] mt-1 px-2 focus:outline-none"
                     value={departing}
-                    onChange={(i) => {setDeparting(i.target.value)}}
+                    onChange={(i) => {
+                      setDeparting(i.target.value);
+                    }}
                   />
                   <div className="absolute bottom-0 left-0 h-[20px] w-full bg-black px-2 font-cal text-[12px] text-white">
                     Departing
@@ -91,13 +92,14 @@ export default function Home() {
                     type="date"
                     className="mt- ml-[-2px] px-2 focus:outline-none"
                     value={returning}
-                    onChange={(i) => {setReturning(i.target.value)}}
+                    onChange={(i) => {
+                      setReturning(i.target.value);
+                    }}
                   />
                   <div className="absolute bottom-0 left-0 h-[20px] w-full bg-black px-2 font-cal text-[12px] text-white">
                     Returning
                   </div>
                 </div>
-                
               </div>
               <Toast.Provider swipeDirection="right">
                 <button
@@ -117,8 +119,7 @@ export default function Home() {
                       toLocation,
                       startDate: new Date(departing),
                       endDate: new Date(returning),
-                    })
-
+                    });
                   }}
                   className="absolute bottom-6 right-6 mt-8 h-fit rounded-md bg-black px-4 py-3 font-cal text-white hover:cursor-pointer"
                 >
@@ -167,22 +168,6 @@ export default function Home() {
                 />
               ))}
           </div>
-          <button
-            className="hover:cursor-pointer"
-            onClick={() => {
-              console.log("Clicked");
-              mutate({
-                name: "Summer",
-                status: "on_going",
-                description: "My summer vacation travel plan",
-                fromLocation: "India",
-                toLocation: "Singapore",
-                startDate: new Date(),
-                endDate: new Date(),
-              });
-            }}
-          >
-          </button>
         </main>
       )}
     </>

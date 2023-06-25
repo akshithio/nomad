@@ -21,7 +21,12 @@ export const Timeline = z.object({
   location: z.string(),
   phone: z.string(),
   cost: z.string(),
-  layovers: z.array(z.string())
+  layovers: z.string(),
+  fromPlace: z.string(),
+  toPlace: z.string(),
+  departingTimezone: z.string(),
+  arrivingTimezone: z.string(),
+  layoverTime: z.number(),
 });
 
 export const Flight = z.object({
@@ -32,8 +37,7 @@ export const Flight = z.object({
   fromAirport: z.string(),
   toAirport: z.string(),
   departure: z.date(),
-  arrival: z.date()
-  
+  arrival: z.date(),
 });
 
 export const Todo = z.object({

@@ -29,7 +29,7 @@ model Journey {
   endDate       DateTime
   ownerId       String
   owner         User            @relation(fields: [ownerId], references: [id], onDelete: Cascade)
-  CollabAccess  CollabAccess[]  
+  CollabAccess  CollabAccess[]
   TimelineCard  TimelineCard[]
   TodoEntry     TodoEntry[]
   TrackedFlight TrackedFlight[]
@@ -42,23 +42,29 @@ model CollabAccess {
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   owner     Boolean?
-  
 }
 
 model TimelineCard {
-  id            String    @id @default(cuid())
-  journeyId     String
-  journey       Journey   @relation(fields: [journeyId], references: [id], onDelete: Cascade)
-  status String
-  type          String
-  title         String
-  description   String
-  fromtTime     DateTime?
-  toTime        DateTime?
-  location      String?
-  phone         String?
-  cost          String?
-  layovers      String[]
+  id                String    @id @default(cuid())
+  journeyId         String
+  journey           Journey   @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  status            String
+  type              String
+  title             String
+  description       String
+  fromtTime         DateTime?
+  toTime            DateTime?
+  fromDate         DateTime?
+  toDate            DateTime?
+  location          String?
+  phone             String?
+  cost              String?
+  layovers          String?
+  fromPlace         String?
+  toPlace           String?
+  departingTimezone String?
+  arrivingTimezone  String?
+  layoverTime       Int?
 }
 
 model TrackedFlight {

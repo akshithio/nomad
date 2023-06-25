@@ -36,7 +36,7 @@ export default function MeetComponent(props) {
         </div>
 
         <h1 className="mt-3 w-[80%] font-inter text-sm text-gray-600">
-         {props.description}
+          {props.description}
         </h1>
 
         <svg

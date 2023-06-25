@@ -73,7 +73,12 @@ export default function Home() {
                       <label className="Label ml-[-2rem]" htmlFor="username">
                         User ID:
                       </label>
-                      <input className="Input" id="username" value={newUserId} onChange={(i) => setNewUserId(i.currentTarget.value)}/>
+                      <input
+                        className="Input"
+                        id="username"
+                        value={newUserId}
+                        onChange={(i) => setNewUserId(i.currentTarget.value)}
+                      />
                     </fieldset>
                     <div
                       style={{
@@ -83,12 +88,15 @@ export default function Home() {
                       }}
                     >
                       <Dialog.Close asChild>
-                        <button className="border-2 border-solid border-black px-2 py-1 font-cal" onClick={() => {
-                          addCollab({
-                            userId: newUserId,
-                            journeyId: router.query.slug as string
-                          })
-                        }}>
+                        <button
+                          className="border-2 border-solid border-black px-2 py-1 font-cal"
+                          onClick={() => {
+                            addCollab({
+                              userId: newUserId,
+                              journeyId: router.query.slug as string,
+                            });
+                          }}
+                        >
                           Save changes
                         </button>
                       </Dialog.Close>

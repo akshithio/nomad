@@ -23,7 +23,7 @@ export default function Navbar(props: any) {
           <Popover.Trigger asChild>
             <button>
               <Image
-              //@ts-expect-error image
+                //@ts-expect-error image
                 src={sessionData && sessionData.user?.image}
                 alt="profile picture"
                 height={36}

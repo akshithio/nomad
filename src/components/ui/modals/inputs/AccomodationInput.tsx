@@ -14,11 +14,7 @@ export default function AccomodationInput() {
         <label className="Label" htmlFor="username">
           Title
         </label>
-        <input
-          className="Input"
-          id="from"
-          placeholder="Enter title"
-        />
+        <input className="Input" id="from" placeholder="Enter title" />
       </fieldset>
       <fieldset className="Fieldset">
         <label className="Label" htmlFor="username">

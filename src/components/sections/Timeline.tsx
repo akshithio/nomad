@@ -55,7 +55,7 @@ export default function Timeline() {
         status="inProgress"
         type="Departing"
       />
-            <CheckInComponent
+      <CheckInComponent
         status="completed"
         title="Hilton Check-In"
         fromTime="Jun 25 23:00 (ET)"
