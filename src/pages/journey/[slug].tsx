@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react";
 import { api } from "@component/utils/api";
 import { useRouter } from "next/router";
 import Timeline from "@component/components/sections/Timeline";
+import TodoCard from "@component/components/ui/TodoCard";
+import TodoList from "@component/components/ui/TodoList";
 
 export default function JourneySlug() {
   const router = useRouter();
@@ -78,7 +80,7 @@ export default function JourneySlug() {
             </Tabs.Content>
             <Tabs.Content value="share">Share Goes Here</Tabs.Content>
             <Tabs.Content value="todos">
-              {JSON.stringify(todo)}
+              {/* {JSON.stringify(todo)} */}
               <button
                 onClick={() => {
                   todoAdd({
@@ -87,7 +89,7 @@ export default function JourneySlug() {
                   });
                 }}
               >
-                Add info [ test ]
+                <TodoList list={[{content: "First task", sourceComplete: false}, {content: "First task", sourceComplete: false}]}/>
               </button>
             </Tabs.Content>
             <Tabs.Content value="misc">Misc Goes Here</Tabs.Content>
