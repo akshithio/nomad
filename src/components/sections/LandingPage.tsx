@@ -6,7 +6,7 @@ export default function Home(props: any) {
   return (
     <>
       <Image
-        className="absolute left-[6%] top-[4%] z-0"
+        className="absolute left-[12.5%] top-[12.5%] z-0"
         src="/bg.png"
         alt="background emojis"
         height={971}
@@ -25,7 +25,7 @@ export default function Home(props: any) {
             </p>
             {/* TODO: animate button translation */}
             <button
-              className="mt-4 border-black border-[4px] px-5 py-1 font-cal hover:px-8 "
+              className="mt-4 border-[4px] border-solid border-black px-5 py-1 font-cal hover:px-8 "
               onClick={
                 props.sessionData ? () => void signOut() : () => void signIn()
               }

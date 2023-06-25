@@ -40,17 +40,19 @@ export default function JourneySlug() {
         <div className="overflow-x-clip">
           <Tabs.Root defaultValue="overview">
             <Tabs.List className="ml-4 mt-4 w-fit rounded-md bg-gray-100 px-4 py-2 font-cal text-xl text-gray-500">
-              <Tabs.Trigger value="timeline">Overview</Tabs.Trigger>
-              <Tabs.Trigger value="timeline" className="ml-4">
+              <Tabs.Trigger className="TabsTrigger" value="overview">
+                Overview
+              </Tabs.Trigger>
+              <Tabs.Trigger value="timeline" className="TabsTrigger ml-4">
                 Timeline
               </Tabs.Trigger>
-              <Tabs.Trigger value="share" className="ml-4">
+              <Tabs.Trigger value="share" className="TabsTrigger ml-4">
                 Share
               </Tabs.Trigger>
-              <Tabs.Trigger value="todos" className="ml-4">
+              <Tabs.Trigger value="todos" className="TabsTrigger ml-4">
                 Todos
               </Tabs.Trigger>
-              <Tabs.Trigger value="misc" className="ml-4">
+              <Tabs.Trigger value="misc" className="TabsTrigger ml-4">
                 Docs & Misc
               </Tabs.Trigger>
             </Tabs.List>
@@ -88,7 +90,12 @@ export default function JourneySlug() {
                   });
                 }}
               >
-                <TodoList list={[{content: "First task", sourceComplete: false}, {content: "First task", sourceComplete: false}]}/>
+                <TodoList
+                  list={[
+                    { content: "First task", sourceComplete: false },
+                    { content: "First task", sourceComplete: false },
+                  ]}
+                />
               </button>
             </Tabs.Content>
             <Tabs.Content value="misc">Misc Goes Here</Tabs.Content>
