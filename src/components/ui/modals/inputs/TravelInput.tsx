@@ -98,7 +98,7 @@ export default function TravelInput() {
       <div className="mb-5 h-[1px] w-full border-[1px] border-solid border-black" />
       <fieldset className="Fieldset">
         <label className="Label" htmlFor="name">
-          Type
+          Layover?
         </label>
         <select name="type" id="type" className="pr-1 focus:outline-none">
           <option value="yes">Yes</option>

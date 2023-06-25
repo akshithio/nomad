@@ -1,4 +1,4 @@
-import TodoCard from "@component/components/ui/TodoCard";
+import { Todo } from "../ui/TodoCard";
 import TodoList from "@component/components/ui/TodoList";
 import * as Dialog from "@radix-ui/react-dialog";
 import { api } from "@component/utils/api";
@@ -12,11 +12,20 @@ export default function Home() {
   const { data: sessionData } = useSession();
 
   const [newUserId, setNewUserId] = useState("");
+  const [newTodo, setNewTodo] = useState("");
 
   const { data: todo } = api.todo.getTodos.useQuery(
     router.query.slug as string,
     { enabled: sessionData?.user !== undefined }
   );
+
+  const { mutate: todoAdd } = api.todo.newTodo.useMutation();
+  const { data: todos } = api.todo.getTodos.useQuery(
+    router.query.slug as string,
+    { enabled: sessionData?.user !== undefined }
+  );
+
+  console.log(todos);
 
   const { mutate: addCollab } = api.collab.addCollab.useMutation();
 
@@ -27,24 +36,33 @@ export default function Home() {
       <div className="flex">
         <div className="mt-8 h-[75vh] w-[65vw] rounded-md border-[1px] border-solid border-black"></div>
         <div>
-          <div className="ml-8 mt-8 h-[55vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
+          <div className="overflow-w-scroll ml-8 mt-8 h-[55vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
             <h1 className="font-cal text-3xl ">Todos</h1>
 
-            <button
-              onClick={() => {
-                todoAdd({
-                  text: "my todo card 1",
-                  journeyId: String(router.query.slug),
-                });
-              }}
-            >
-              <TodoList
-                list={[
-                  { content: "First task", sourceComplete: false },
-                  { content: "First task", sourceComplete: false },
-                ]}
+            <div className="mb-4 ml-4 mt-4">
+              <input
+                className="text-md w-[60%] rounded-md border-[1px] border-solid border-black p-2"
+                type="text"
+                placeholder="Enter Todos"
+                value={newTodo}
+                onChange={(e) => setNewTodo(e.target.value)}
               />
-            </button>
+              <button
+                className="ml-4 rounded-md border-[1px] border-solid border-black p-2 font-cal"
+                onClick={() => {
+                  todoAdd({
+                    text: newTodo,
+                    journeyId: String(router.query.slug),
+                  });
+                }}
+              >
+                Add Todo
+              </button>
+            </div>
+
+            <div className="w-full border-[1px] border-solid border-black" />
+
+            <TodoList list={todos as unknown as Todo[]} />
           </div>
           <div className="ml-8 mt-8 h-[17.5vh] w-[31vw] rounded-md border-[1px] border-solid border-black p-4">
             <h1 className="font-cal text-3xl ">Share</h1>
@@ -73,7 +91,12 @@ export default function Home() {
                       <label className="Label ml-[-2rem]" htmlFor="username">
                         User ID:
                       </label>
-                      <input className="Input" id="username" value={newUserId} onChange={(i) => setNewUserId(i.currentTarget.value)}/>
+                      <input
+                        className="Input"
+                        id="username"
+                        value={newUserId}
+                        onChange={(i) => setNewUserId(i.currentTarget.value)}
+                      />
                     </fieldset>
                     <div
                       style={{
@@ -83,12 +106,15 @@ export default function Home() {
                       }}
                     >
                       <Dialog.Close asChild>
-                        <button className="border-2 border-solid border-black px-2 py-1 font-cal" onClick={() => {
-                          addCollab({
-                            userId: newUserId,
-                            journeyId: router.query.slug as string
-                          })
-                        }}>
+                        <button
+                          className="border-2 border-solid border-black px-2 py-1 font-cal"
+                          onClick={() => {
+                            addCollab({
+                              userId: newUserId,
+                              journeyId: router.query.slug as string,
+                            });
+                          }}
+                        >
                           Save changes
                         </button>
                       </Dialog.Close>
