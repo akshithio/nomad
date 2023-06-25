@@ -129,7 +129,13 @@ button {
 
 .TabsTrigger[data-state="active"] {
   color: black;
-  
+
+  box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
+}
+
+.TabsTriggerSpecial[data-state="active"] {
+  color: #dc2626;
+
   box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
 }
 

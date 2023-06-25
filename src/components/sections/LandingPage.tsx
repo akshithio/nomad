@@ -12,8 +12,8 @@ export default function Home(props: any) {
         height={971}
         width={1096}
       />
-      <main className="relative z-10 flex flex-col lg:flex-row min-h-screen">
-        <div className="border-1 flex h-screen lg:w-[70%] flex-col items-center justify-center border-black">
+      <main className="relative z-10 flex min-h-screen flex-col lg:flex-row">
+        <div className="border-1 flex h-screen flex-col items-center justify-center border-black lg:w-[70%]">
           <Image src="/logo.svg" alt="nomad logo" width={96} height={96} />
           <h1 className="ml-3 font-cal text-6xl font-bold">Nomad</h1>
           <h1 className="mt-2 font-serif">Travelling Simplified.</h1>
@@ -34,7 +34,7 @@ export default function Home(props: any) {
             </button>
           </div>
         </div>
-        <div className="h-full lg:w-[30%] bg-gray-100 px-5 py-8 font-serif">
+        <div className="h-screen bg-gray-100 px-5 py-8 font-serif lg:w-[30%]">
           <h1>
             <span className="font-cal text-[15px]">Nomad</span> simplifies the
             chaos that is itinerary planning by bringing together{" "}
@@ -167,7 +167,7 @@ export default function Home(props: any) {
             <h1 className="ml-4 mt-2">• tRPC: API requests made better 👍</h1>
           </ul>
 
-          <h1 className="mt-8">
+          <h1 className="absolute bottom-4 mt-8">
             - Built by{" "}
             <a className="underline" target="_blank" href="https://akshith.io">
               Akshith
