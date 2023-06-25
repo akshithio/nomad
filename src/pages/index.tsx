@@ -145,6 +145,10 @@ export default function Home() {
             </div>
             <div className="ml-8 w-[62%] rounded-md border-[1px] border-black p-4">
               <h1 className=" font-cal text-4xl">Updates</h1>
+              <div className="text-lg space-y-2 py-4 px-2">
+                <p>Your next flight is in 30 minutes, make sure you are ready with your required materials.</p>
+                <p>Your rock climbing adventure location has been confirmed.</p>
+              </div>
             </div>
           </div>
 
