@@ -19,7 +19,7 @@ export const collabRouter = createTRPCRouter({
         return await ctx.prisma.collabAccess.create({
           data: {
             journeyId: input.journeyId,
-            userId: ctx.session.user.id,
+            userId: input.userId,
           },
         });
       }
