@@ -1,29 +1,40 @@
-interface travelInteface {
-  toAirport: string;
-  fromAirport: string;
-  fromTime: string;
-  toTime: string;
-  layover: boolean;
-  layoverDetails: string;
-}
-
-export default function CheckInComponent(props: travelInteface) {
+export default function CheckInComponent(props) {
   return (
-    <div className="left container relative flex">
-      <div className="relative w-[45%] rounded-md border-[1px] px-4 py-4 shadow-md">
+    <div className="left container relative flex w-[50%]">
+      <div className="relative w-full rounded-md border-[1px] px-4 py-4 shadow-md">
         <div className="absolute right-4 rounded-md bg-green-300 px-2 font-cal text-[12px]">
           Completed
         </div>
         <div className="w-fit rounded-md bg-gray-300 px-2 font-cal text-[12px]">
           Hotel: Check-in
         </div>
-        <h1 className="mt-1 font-cal text-4xl">Hilton Check-In</h1>
-        <h1 className="font-inter text-sm text-gray-600">Jun 25 23:00 (ET)</h1>
+        <h1 className="mt-1 font-cal text-4xl">{props.title}</h1>
+        <h1 className="font-inter text-sm text-gray-600">{props.fromTime}</h1>
 
-        <h1 className="mt-4 font-inter text-sm text-gray-600">
-          136 W 42nd St, New York, NY 10036, United States
-        </h1>
-
+        <div className="mt-4 flex">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_114_3358)">
+              <path
+                d="M13.7466 5.63332C13.0466 2.55332 10.3599 1.16666 7.99994 1.16666C7.99994 1.16666 7.99994 1.16666 7.99327 1.16666C5.63994 1.16666 2.94661 2.54666 2.24661 5.62666C1.46661 9.06666 3.57328 11.98 5.47994 13.8133C6.18661 14.4933 7.09327 14.8333 7.99994 14.8333C8.90661 14.8333 9.81328 14.4933 10.5133 13.8133C12.4199 11.98 14.5266 9.07332 13.7466 5.63332ZM7.99994 8.97332C6.83994 8.97332 5.89994 8.03332 5.89994 6.87332C5.89994 5.71332 6.83994 4.77332 7.99994 4.77332C9.15994 4.77332 10.0999 5.71332 10.0999 6.87332C10.0999 8.03332 9.15994 8.97332 7.99994 8.97332Z"
+                fill="#718096"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_114_3358">
+                <rect width="16" height="16" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <h1 className="ml-1 font-inter text-sm text-gray-600">
+            {props.address}
+          </h1>
+        </div>
         <div className="mt-1 flex items-center">
           <svg
             width="16"
@@ -50,8 +61,46 @@ export default function CheckInComponent(props: travelInteface) {
             />
           </svg>
 
-          <h1 className="font-inter text-sm text-gray-600">+1 212-840-9600</h1>
+          <h1 className="font-inter text-sm text-gray-600">{props.phone}</h1>
         </div>
+
+        {props.type === "in" && (
+          <div className="mt-1 flex items-center">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.78125 9.55322C5.78125 10.4132 6.44125 11.1066 7.26125 11.1066H8.93458C9.64792 11.1066 10.2279 10.4999 10.2279 9.75322C10.2279 8.93989 9.87458 8.65322 9.34792 8.46655L6.66125 7.53322C6.13458 7.34655 5.78125 7.05989 5.78125 6.24655C5.78125 5.49989 6.36125 4.89322 7.07458 4.89322H8.74792C9.56792 4.89322 10.2279 5.58655 10.2279 6.44655"
+                stroke="#718096"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 4V12"
+                stroke="#718096"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8.00004 14.6667C11.6819 14.6667 14.6667 11.6819 14.6667 8.00001C14.6667 4.31811 11.6819 1.33334 8.00004 1.33334C4.31814 1.33334 1.33337 4.31811 1.33337 8.00001C1.33337 11.6819 4.31814 14.6667 8.00004 14.6667Z"
+                stroke="#718096"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <h1 className="ml-1 font-inter text-sm text-gray-600">
+              ${props.price} per night
+            </h1>
+          </div>
+        )}
 
         <svg
           className="absolute bottom-2 right-2"
