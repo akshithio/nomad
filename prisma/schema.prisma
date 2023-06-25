@@ -28,8 +28,8 @@ model Journey {
   startDate     DateTime
   endDate       DateTime
   ownerId       String
-  owner         User            @relation(fields: [ownerId], references: [id])
-  CollabAccess  CollabAccess[]
+  owner         User            @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  CollabAccess  CollabAccess[]  
   TimelineCard  TimelineCard[]
   TodoEntry     TodoEntry[]
   TrackedFlight TrackedFlight[]
@@ -38,9 +38,9 @@ model Journey {
 model CollabAccess {
   id        String   @id @default(cuid())
   journeyId String
-  journey   Journey  @relation(fields: [journeyId], references: [id])
+  journey   Journey  @relation(fields: [journeyId], references: [id], onDelete: Cascade)
   userId    String
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   owner     Boolean?
   
 }
@@ -48,7 +48,7 @@ model CollabAccess {
 model TimelineCard {
   id            String    @id @default(cuid())
   journeyId     String
-  journey       Journey   @relation(fields: [journeyId], references: [id])
+  journey       Journey   @relation(fields: [journeyId], references: [id], onDelete: Cascade)
   status String
   type          String
   title         String
@@ -64,7 +64,7 @@ model TimelineCard {
 model TrackedFlight {
   id          String   @id @default(cuid())
   journeyId   String
-  journey     Journey  @relation(fields: [journeyId], references: [id])
+  journey     Journey  @relation(fields: [journeyId], references: [id], onDelete: Cascade)
   flightCode  String
   name        String
   fromAirport String
@@ -76,7 +76,7 @@ model TrackedFlight {
 model TodoEntry {
   id        String  @id @default(cuid())
   journeyId String
-  journey   Journey @relation(fields: [journeyId], references: [id])
+  journey   Journey @relation(fields: [journeyId], references: [id], onDelete: Cascade)
   text      String
   completed Boolean @default(false)
 }

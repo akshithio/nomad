@@ -45,4 +45,11 @@ export const journeyRouter = createTRPCRouter({
         },
       });
     }),
+    deletePlan: protectedProcedure.input(z.string()).mutation(async ({ctx, input}) => {
+      return await ctx.prisma.journey.delete({
+        where: {
+          id: input
+        }
+      })
+    })
 });
