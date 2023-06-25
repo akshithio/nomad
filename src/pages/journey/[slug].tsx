@@ -21,12 +21,7 @@ export default function JourneySlug() {
   const { mutate: timelineCardMutate } =
     api.timeline.newTimelineCard.useMutation();
 
-  const { data: todo } = api.todo.getTodos.useQuery(
-    router.query.slug as string,
-    { enabled: sessionData?.user !== undefined }
-  );
 
-  const { mutate: todoAdd } = api.todo.newTodo.useMutation();
 
   return (
     <>

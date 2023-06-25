@@ -8,7 +8,7 @@ export interface Todo {
 export default function TodoCard({ content, sourceComplete }: Todo) {
   const [completed, setCompleted] = useState(sourceComplete);
   return (
-    <div className="space-x-2 rounded-lg bg-neutral-100 px-12 py-4">
+    <div className="space-x-2 rounded-md bg-neutral-100 px-6 py-4">
       <input
         type="checkbox"
         className="border-neutral-400"
@@ -17,7 +17,7 @@ export default function TodoCard({ content, sourceComplete }: Todo) {
           setCompleted(i.currentTarget.checked);
         }}
       />
-      <span className={completed ? "line-through" : ""}>{content}</span>
+      <span className={completed ? "line-through font-cal text-lg" : "font-cal text-lg"}>{content}</span>
     </div>
   );
 }
